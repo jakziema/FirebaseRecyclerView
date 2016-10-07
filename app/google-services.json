@@ -1,0 +1,99 @@
+{
+  "project_info": {
+    "project_number": "93088765665",
+    "firebase_url": "https://praca-inzynierska-44519.firebaseio.com",
+    "project_id": "praca-inzynierska-44519",
+    "storage_bucket": "praca-inzynierska-44519.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:93088765665:android:873a478bd3f696ba",
+        "android_client_info": {
+          "package_name": "com.inzynierska.opentricity"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "93088765665-itid8el2rbquo3ctpn57iga1ffr5v0r3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.inzynierska.opentricity",
+            "certificate_hash": "C72637219D17DC67B23947B4B30F7FDE1474EFA1"
+          }
+        },
+        {
+          "client_id": "93088765665-7bdop1e537dpjpo03rmpelv4mkf4m0tn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4BhyWcFAI5WdCBwolDI3AbkoA-fMszY8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "93088765665-7bdop1e537dpjpo03rmpelv4mkf4m0tn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:93088765665:android:08cc8bae2a516416",
+        "android_client_info": {
+          "package_name": "com.example.beata_macbook.firebaselistadapter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "93088765665-56ugcc518c2djguvr66amrj844rrlpml.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.beata_macbook.firebaselistadapter",
+            "certificate_hash": "C72637219D17DC67B23947B4B30F7FDE1474EFA1"
+          }
+        },
+        {
+          "client_id": "93088765665-7bdop1e537dpjpo03rmpelv4mkf4m0tn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4BhyWcFAI5WdCBwolDI3AbkoA-fMszY8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "93088765665-7bdop1e537dpjpo03rmpelv4mkf4m0tn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
