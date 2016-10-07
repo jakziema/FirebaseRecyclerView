@@ -49,46 +49,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        //ADAPTER
-         final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mMessages);
-        mListView.setAdapter(adapter);
+
 
         Firebase messageRef = mRootRef.child("messages");
-        messageRef.addChildEventListener(new ChildEventListener() {
+        FirebaseListAdapter<String> adapter = new FirebaseListAdapter<String>(this,String.class, android.R.layout.simple_list_item_1, messageRef) {
             @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                String message = (String) dataSnapshot.getValue();
-                Log.v("E_CHILD_ADDED", message);
-
-                mMessages.add(message);
-                adapter.notifyDataSetChanged();
+            protected void populateView(View view, String s, int i) {
+                TextView textView = (TextView)view.findViewById(android.R.id.text1);
+                textView.setText(s);
             }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-                String message = (String) dataSnapshot.getValue();
-                Log.v("E_CHILD_CHANGED", message);
-
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-                String message = (String) dataSnapshot.getValue();
-                Log.v("E_CHILD_REMOVED", message);
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-                String message = (String) dataSnapshot.getValue();
-                Log.v("E_CHILD_MOVED", message);
-            }
-
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-
-            }
-        });
+        };
+                mListView.setAdapter(adapter);
     }
 
 
