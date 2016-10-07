@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.firebase.client.ChildEventListener;
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
@@ -48,18 +49,36 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
 
         Firebase messageRef = mRootRef.child("messages");
-        messageRef.addValueEventListener(new ValueEventListener() {
+        messageRef.addChildEventListener(new ChildEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                Map<String, String> map = (Map<String, String>) dataSnapshot.getValue();
-                String hello
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                String message = (String) dataSnapshot.getValue();
+                Log.v("E_CHILD_ADDED", message);
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+                String message = (String) dataSnapshot.getValue();
+                Log.v("E_CHILD_CHANGED", message);
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+                String message = (String) dataSnapshot.getValue();
+                Log.v("E_CHILD_REMOVED", message);
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+                String message = (String) dataSnapshot.getValue();
+                Log.v("E_CHILD_MOVED", message);
             }
 
             @Override
             public void onCancelled(FirebaseError firebaseError) {
 
             }
-        });
+        })
     }
 
 
