@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -38,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         Firebase.setAndroidContext(this);
          mRootRef = new Firebase("https://praca-inzynierska-44519.firebaseio.com");
 
-        //mTextView = (TextView)findViewById(R.id.textView);
+
         mListView = (ListView)findViewById(R.id.listView);
         mTextView = (TextView)findViewById(R.id.textView);
 
@@ -48,18 +49,27 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
+        //ADAPTER
+         final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mMessages);
+        mListView.setAdapter(adapter);
+
         Firebase messageRef = mRootRef.child("messages");
         messageRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 String message = (String) dataSnapshot.getValue();
                 Log.v("E_CHILD_ADDED", message);
+
+                mMessages.add(message);
+                adapter.notifyDataSetChanged();
             }
 
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
                 String message = (String) dataSnapshot.getValue();
                 Log.v("E_CHILD_CHANGED", message);
+
+
             }
 
             @Override
@@ -78,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
             public void onCancelled(FirebaseError firebaseError) {
 
             }
-        })
+        });
     }
 
 
